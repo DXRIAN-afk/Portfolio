@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d14">
+<meta name="description" content="Valence – ein Code-Playground im Browser für HTML, JavaScript und Python. Schreibe, organisiere und führe Code sofort aus.">
+<title>Valence — Code Playground für HTML, JavaScript &amp; Python</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #0a0d14;
+    --surface: #121722;
+    --surface-2: #171e2c;
+    --surface-3: #1e2740;
+    --border: #293349;
+    --border-soft: #1e2536;
+    --text: #eef1f8;
+    --text-muted: #8b93a8;
+    --text-faint: #576079;
+    --accent: #4fc3ff;
+    --accent-soft: rgba(79,195,255,0.14);
+    --accent-dim: #2f7cad;
+    --node-white: #f4f6fa;
+    --node-gray: #8892a3;
+    --folder: #f0b95c;
+    --success: #3ecf8e;
+    --danger: #f2685c;
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-ui: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  html,body{ margin:0; }
+  body{
+    background:
+      radial-gradient(circle at 85% -8%, rgba(79,195,255,0.10), transparent 40%),
+      radial-gradient(circle at -5% 25%, rgba(240,185,92,0.05), transparent 35%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--font-ui);
+    line-height:1.6;
+  }
+  ::selection{ background:var(--accent-soft); color:var(--text); }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+
+  *::-webkit-scrollbar{ width:10px; }
+  *::-webkit-scrollbar-track{ background:transparent; }
+  *::-webkit-scrollbar-thumb{ background:var(--border); border-radius:20px; border:2px solid var(--bg); background-clip:padding-box; }
+
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
+
+  .node{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .node-html{ background:var(--node-gray); }
+  .node-js{ background:var(--node-white); }
+  .node-py{ background:var(--accent); box-shadow:0 0 8px 2px rgba(79,195,255,0.6); }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--surface-2);
+    border:1px solid var(--border-soft); color:var(--text); font-size:14px; font-weight:500;
+    padding:11px 18px; border-radius:11px; transition:all .15s ease; text-decoration:none; cursor:pointer;
+  }
+  .btn:hover{ background:var(--surface-3); border-color:var(--border); }
+  .btn.primary{
+    background:linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+    border:none; color:#04121c; font-weight:600;
+    box-shadow:0 0 0 1px rgba(79,195,255,0.25), 0 6px 20px rgba(79,195,255,0.2);
+  }
+  .btn.primary:hover{ filter:brightness(1.08); }
+  .btn.lg{ padding:13px 24px; font-size:15px; border-radius:12px; }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+    background:rgba(10,13,20,0.75); border-bottom:1px solid var(--border-soft);
+  }
+  .nav-inner{ max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:28px; }
+  .nav-brand{ display:flex; align-items:center; gap:9px; text-decoration:none; flex-shrink:0; }
+  .nav-brand img{ width:26px; height:26px; border-radius:7px; }
+  .nav-brand span{
+    font-family:var(--font-display); font-weight:600; font-size:17px;
+    background:linear-gradient(90deg, var(--text) 35%, var(--accent) 130%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .nav-links{ display:flex; gap:22px; flex:1; }
+  .nav-links a{ color:var(--text-muted); text-decoration:none; font-size:14px; font-weight:500; transition:color .15s ease; }
+  .nav-links a:hover{ color:var(--text); }
+  @media (max-width:700px){ .nav-links{ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:88px 0 64px; }
+  .hero-inner{ max-width:1120px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; }
+  @media (max-width:900px){ .hero-inner{ grid-template-columns:1fr; } }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600; letter-spacing:.04em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid rgba(79,195,255,0.25);
+    padding:6px 12px; border-radius:100px; margin-bottom:20px;
+  }
+  h1{ font-family:var(--font-display); font-size:44px; line-height:1.15; font-weight:600; margin:0 0 18px; letter-spacing:-.01em; }
+  .accent-text{
+    background:linear-gradient(90deg, var(--accent), #8fe3ff);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-sub{ font-size:17px; color:var(--text-muted); max-width:480px; margin:0 0 30px; }
+  .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+  .hero-visual{
+    background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-lg);
+    box-shadow:0 20px 60px rgba(0,0,0,0.35); overflow:hidden; position:relative;
+  }
+  .mock-topbar{ display:flex; align-items:center; gap:7px; padding:12px 14px; border-bottom:1px solid var(--border-soft); }
+  .mock-dot{ width:10px; height:10px; border-radius:50%; }
+  .mock-body{ padding:20px 22px 26px; font-family:var(--font-mono); font-size:12.5px; }
+  .mock-line{ height:9px; border-radius:4px; background:var(--surface-3); margin-bottom:10px; }
+  .mock-line.k{ background:rgba(197,134,192,0.35); }
+  .mock-line.s{ background:rgba(62,207,142,0.3); }
+  .mock-line.c{ background:rgba(79,195,255,0.28); }
+  .mock-console{
+    margin:18px 22px 22px; padding:12px 14px; background:var(--surface-2); border-radius:10px;
+    border:1px solid var(--border-soft); font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint);
+  }
+  .mock-console .out{ color:var(--success); }
+  .mock-bond{ position:absolute; right:22px; top:16px; display:flex; gap:6px; }
+  .mock-bond span{ width:8px; height:8px; border-radius:50%; }
+
+  /* ---------- Sections ---------- */
+  .section{ padding:78px 0; border-top:1px solid var(--border-soft); }
+  .section-head{ max-width:640px; margin:0 auto 44px; text-align:center; }
+  h2{ font-family:var(--font-display); font-size:32px; font-weight:600; margin:0 0 12px; letter-spacing:-.01em; }
+  .section-lead{ color:var(--text-muted); font-size:15.5px; margin:0; }
+
+  .feature-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+  @media (max-width:820px){ .feature-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .feature-grid{ grid-template-columns:1fr; } }
+  .feature-card{
+    background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-md);
+    padding:22px; transition:border-color .15s ease, transform .15s ease;
+  }
+  .feature-card:hover{ border-color:var(--border); transform:translateY(-2px); }
+  .feature-icon{
+    width:38px; height:38px; border-radius:10px; background:var(--surface-2); border:1px solid var(--border-soft);
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--accent);
+  }
+  .feature-icon svg{ width:18px; height:18px; }
+  .feature-card h3{ font-size:15.5px; font-weight:600; margin:0 0 6px; font-family:var(--font-ui); }
+  .feature-card p{ font-size:13.5px; color:var(--text-muted); margin:0; }
+
+  .steps-row{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; counter-reset:step; }
+  @media (max-width:760px){ .steps-row{ grid-template-columns:1fr; } }
+  .step-card{ position:relative; background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:24px 22px; }
+  .step-num{
+    width:30px; height:30px; border-radius:9px; background:var(--accent-soft); color:var(--accent);
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:14px; margin-bottom:14px;
+  }
+  .step-card h3{ font-size:15.5px; margin:0 0 6px; }
+  .step-card p{ font-size:13.5px; color:var(--text-muted); margin:0; }
+
+  /* ---------- Lessons ---------- */
+  .lessons-tabs{ display:flex; justify-content:center; gap:6px; background:var(--surface-2); border:1px solid var(--border-soft); border-radius:12px; padding:5px; max-width:420px; margin:0 auto 30px; }
+  .lesson-tab{
+    flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:transparent; border:none;
+    color:var(--text-muted); font-size:13.5px; font-weight:500; font-family:var(--font-ui); padding:9px 12px; border-radius:8px; cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  .lesson-tab:hover{ color:var(--text); }
+  .lesson-tab.active{ background:var(--surface-3); color:var(--text); }
+
+  .accordion{ max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+  .accordion-item{ background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden; }
+  .accordion-header{
+    width:100%; display:flex; align-items:center; gap:14px; background:none; border:none; color:var(--text);
+    padding:16px 18px; text-align:left; cursor:pointer; font-family:var(--font-ui);
+  }
+  .accordion-header:hover{ background:var(--surface-2); }
+  .step-badge{
+    width:26px; height:26px; border-radius:8px; background:var(--surface-2); border:1px solid var(--border-soft);
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:12px; color:var(--text-faint); flex-shrink:0;
+  }
+  .accordion-item.open .step-badge{ background:var(--accent-soft); color:var(--accent); border-color:rgba(79,195,255,0.3); }
+  .accordion-title{ flex:1; font-size:14.5px; font-weight:500; }
+  .accordion-chevron{ width:14px; height:14px; color:var(--text-faint); transition:transform .2s ease; flex-shrink:0; }
+  .accordion-item.open .accordion-chevron{ transform:rotate(90deg); color:var(--text-muted); }
+  .accordion-body{ max-height:0; overflow:hidden; transition:max-height .25s ease; }
+  .accordion-item.open .accordion-body{ max-height:600px; }
+  .accordion-body-inner{ padding:0 18px 20px; }
+  .accordion-body-inner p{ font-size:13.5px; color:var(--text-muted); margin:0 0 14px; line-height:1.65; }
+  .code-block{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-left:3px solid var(--accent);
+    border-radius:8px; padding:14px 16px; margin:0 0 12px; overflow-x:auto;
+  }
+  .code-block code{ font-family:var(--font-mono); font-size:12.5px; color:#c9d4e6; white-space:pre; }
+  .try-link{ display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; color:var(--accent); text-decoration:none; }
+  .try-link:hover{ text-decoration:underline; }
+  .try-link svg{ width:12px; height:12px; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    margin:0 24px; padding:56px 24px; text-align:center; border-radius:var(--radius-lg);
+    background:linear-gradient(135deg, rgba(79,195,255,0.08), rgba(240,185,92,0.05)), var(--surface);
+    border:1px solid var(--border-soft);
+  }
+  .cta-band h2{ margin-bottom:10px; }
+  .cta-band p{ color:var(--text-muted); font-size:15px; margin:0 0 26px; }
+
+  /* ---------- Footer ---------- */
+  .site-footer{ padding:44px 0 34px; border-top:1px solid var(--border-soft); margin-top:20px; }
+  .footer-inner{ max-width:1120px; margin:0 auto; padding:0 24px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; }
+  .footer-brand{ display:flex; align-items:center; gap:8px; }
+  .footer-brand img{ width:22px; height:22px; border-radius:6px; }
+  .footer-brand span{ font-family:var(--font-display); font-weight:600; font-size:14.5px; color:var(--text-muted); }
+  .footer-links{ display:flex; gap:20px; }
+  .footer-links a{ color:var(--text-faint); text-decoration:none; font-size:13px; }
+  .footer-links a:hover{ color:var(--text-muted); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="data:image/png;base64,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" alt="Valence Logo">
+      <span>Valence</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#projekt">Projekt</a>
+      <a href="#lernen">Sprachen lernen</a>
+    </nav>
+    <a href="valence.html" class="btn primary">Editor öffnen</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">● Code-Playground im Browser</span>
+      <h1>Schreibe, organisiere und <span class="accent-text">führe Code aus</span> — direkt im Browser.</h1>
+      <p class="hero-sub">Valence ist ein leichter Editor für HTML, JavaScript und Python. Kein Setup, keine Installation, kein Account. Öffnen, tippen, ausführen.</p>
+      <div class="hero-actions">
+        <a href="valence.html" class="btn primary lg">Editor öffnen</a>
+        <a href="#lernen" class="btn lg">Sprachen lernen</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="mock-topbar">
+        <span class="mock-dot" style="background:var(--node-gray);"></span>
+        <span class="mock-dot" style="background:var(--node-white);"></span>
+        <span class="mock-dot" style="background:var(--accent); box-shadow:0 0 8px 2px rgba(79,195,255,.6);"></span>
+      </div>
+      <div class="mock-body">
+        <div class="mock-line k" style="width:38%;"></div>
+        <div class="mock-line" style="width:70%;"></div>
+        <div class="mock-line" style="width:58%;"></div>
+        <div class="mock-line s" style="width:64%;"></div>
+        <div class="mock-line" style="width:34%;"></div>
+        <div class="mock-line c" style="width:48%;"></div>
+      </div>
+      <div class="mock-console">
+        <div>&gt; Ausführen …</div>
+        <div class="out">✓ fib(7) = 13</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projekt" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Das Projekt</h2>
+      <p class="section-lead">Valence ist ein browserbasierter Code-Editor für Einsteiger und Fortgeschrittene. Er verbindet einen Mehrsprachen-Editor, eine sofortige Live-Ausführung und ein einfaches Ordnersystem in einer einzigen, ruhigen Oberfläche — ganz ohne Installation.</p>
+    </div>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Drei Sprachen, ein Editor</h3>
+        <p>HTML, JavaScript und Python in derselben Oberfläche schreiben — mit Syntaxhervorhebung und Zeilennummern.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </div>
+        <h3>Sofort ausführen</h3>
+        <p>Ein Klick auf „Ausführen" zeigt Live-Vorschau und Konsole. Python läuft direkt im Browser via Pyodide.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Ordner &amp; Dateien</h3>
+        <p>Projekte in Ordnern organisieren, umbenennen und per Drag &amp; Drop verschieben — wie in einer echten IDE.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+        </div>
+        <h3>Automatisch gespeichert</h3>
+        <p>Deine Dateien bleiben erhalten — auch nachdem du den Tab schließt oder den Browser neu startest.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <h3>Eigene Dateien öffnen</h3>
+        <p>Bestehende .html-, .js- oder .py-Dateien laden, bearbeiten und wieder als Datei herunterladen.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Für jedes Level geeignet</h3>
+        <p>Vom ersten „Hallo Welt" bis zu größeren Projekten — Valence wächst mit deinem Wissen mit.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>So funktioniert's</h2>
+      <p class="section-lead">Drei Schritte, kein Setup.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Schreiben</h3>
+        <p>Code in den Editor eingeben oder eine der Vorlagen für HTML, JavaScript oder Python nutzen.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Ausführen</h3>
+        <p>Mit Strg/Cmd + Enter oder einem Klick auf „Ausführen" siehst du das Ergebnis sofort in Vorschau oder Konsole.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Organisieren</h3>
+        <p>Datei benennen, in einen Ordner legen und jederzeit wiederfinden — automatisch gespeichert.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lernen" class="section lessons-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Programmiersprachen lernen</h2>
+      <p class="section-lead">Schritt-für-Schritt-Anleitungen für HTML, JavaScript und Python. Jedes Beispiel lässt sich mit einem Klick direkt im Editor ausprobieren.</p>
+    </div>
+
+    <div class="lessons-tabs" id="lessonTabs">
+      <button class="lesson-tab active" data-lang="html"><span class="node node-html"></span>HTML</button>
+      <button class="lesson-tab" data-lang="javascript"><span class="node node-js"></span>JavaScript</button>
+      <button class="lesson-tab" data-lang="python"><span class="node node-py"></span>Python</button>
+    </div>
+
+    <div class="accordion" id="lessonAccordion"></div>
+  </div>
+</section>
+
+<section class="section" style="border-top:none; padding-top:0;">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Bereit loszulegen?</h2>
+      <p>Kein Account, keine Installation — der Editor läuft direkt in deinem Browser.</p>
+      <a href="valence.html" class="btn primary lg">Editor öffnen</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAXMklEQVR42o17a6wd13Xet9beM+d5H3xdPkxSomRJtqTIMgXVdmSFoiUrsiMHARLWAeLYgJH8zp8gRVu0BKqiQRv0gTpp0wBu4KJqEzMRkMSJLMnRi5QVq6EVWTLt2LIoWRJJ8XF53+feM7PX1x/zODPnzL3UBS7OzJw5e/Z6r/WtNYLmPyVJEWFxodfrzfW37Z6jyVQCACkADwAQJACQABKxtoqH5EcEIEhBT0gaZdckTUl4ye8QCAgAkc9WQwoWa/jskcyfK1G2JghImgDZb1NEka6uXF25uLZ26UK5D1IgogDCOKEyQfqxYw4nTgQA2Hvw5ns6velfVhffI4JDIjpNSAsClKwRVLYi+XFBcfUpMnZxcisEIMzXKRaWsW2ysowU58VDCQiGIJdp9paF9MWNjeXH3n3jzNPjtDUzIL9h177r7pye3fvvo1brQe9jGA0kATL7FCGYP16K3ZMQkWw3xWGVMmEmidFja+ohQlZWA2R0V8nk8qP22yp3BBCIQESgIgghxXB97eTa8pV/fv6nP3phnAlunPgP3HjHF6e37Xms1el+iGYhBAs0y7gLMvvI9yQcf3guCFYFVtKUE0ipbVxKCRKC7CYZadOYBrBUNSn1pbyPKPZImpmZBUAYt9qHolbnS93ezMrSqWe+feTIEf/WW29ZhQHHHM6cCPuuv/VLM9t2fU2d82mSpiJwIqIikFwgkglLkMlSaio0kplkVFbOM8GIAJLLByUdJcG56DJzLa4pIAoWvxItJcxsqWJb+XoiIpodKBSgmDGIc9Lu9B6K21Prr/7Dd07i2DGHM2coORPCzus+/NHtMzu/43ykGeOgUpNvzuRSu0udzvWApdoyv3sk6ZJRQoAiUpg6S+lmEpeciEIPwIIZY3o2MgFCyHxDZPYE5IuRpUaSJioGC9HiwqUHz5997SngmNPjx48TgE51p/4giluRWcpcBOXmaxqWf+aqODJNNtlkqdfVPVeVWlBalICi2bahgDhQXC59B4oHxQPiQYlA8bDsXLLrjhmzMo0BpPYvIkqjiPPo9qZ/H0Ab/LoJAOw7ePP90zv2fotkKIivemyyxvI8XIkUUq86QSkchdRiwOi+ummQIllEEQUlVzpxpLjsWJUUV/6G0Hq0oEFoAE0Ao9AyN0ODwFhGqEJTyOC88ytXL3/hp69/91EPAK3e9Oedi5gkiYlAuWmMxJhRbHlY0VFpWG7kJygZAyCaSV8dWEhUc8ln3ICJ5uy0PLQGCANgRmEKIM1UvySCtdBRRDHfan8BwKMegFf1nzCaiFBZtTdWtGg8hvOaHMqJK1fkKKaNOS5IqfKUXP1dnJ1rDGqUa4cwu0dyqQNiiYglhAQRG1KZacXIxpido3Q1SjNRdYenp6e3+05nx5yI7Gd2k1Tia+nMyWrSUSiz5BlWmRFU3IbU4zIqzq78XkqpQgqpe0AczMWgtoQuJl0LljGBVAckKZCmEEvzACqEjyGWQlOBUSAMuRsFSQNyIWThOXPA6tzO3uyuQ74329sjIv1i61tpM+rcqOZ8Y/nIKJvLIsW47ZQhr7D9TOoawTQCXQsW9WGuDUQdhKgL0AFmGO7aiWR2t1jcpQ7XEF16R9oXXqdywBD1oKlAmeRJm0CQ5lu1yp5gol7Vd/Z4ge9CxI+EjlEGNwoEE7E+I4Cs+/NJ5yEoQz4r6pE/S0bEi8/U3bVI34XF07S4B2tPw1wX1ulj+aOHsb7vUEaDZeUHhmB86R3MvPQ3aJ97DRb1IOkaQROaAVCIWJ5+Sem8RQQGmVHUwhkrYmfpP+tObhMdqbKqfj8r6jIyAQEoWcijeKF6mMYw30GI+wjtGaRTe5BM78fG3g/iyuc+i/VbDwFtAC4AErLaRg3DPftx6TO/IYMDHwFNEXxHMifq8qghYJ5osWqcIUBHCSa3cvQyaRSsfrdFiSOV+C9j6YAAqlnYy1WfvgtrTSP0diGZ3Y9kx/VYu+cj8Ac64lsBmALQd4KuA7oOaGvGDK+Yv/fzErrbADhm/qTICdBohKA2fFsjmmV+3eARmivLze/jKPEb2T+Q+QCKB10MizpirSlYdxs4sxvhugPYfV0fd/fA62YcfAtABCIGyv+WAxhgM32s3XgXkKRC54WFfKVZPnRV9sgEE1gKbTMmSY1iNicP5LiiSFUT8ggAVcBFgG9DWj1wahYrrRmsb+/i8DbgMzuAW7rAVJzjDJon8cWnEwLgxu7rCmfHWsnISTI9QD9+w5jrY+0YDX6/GhAak4WyApR6jchKMQQ4VcB7JKJYXA8Yrmzglj1DJNOG9VxxFEDgWOlZlJMCIEAYtfI7LKsNivIVzCt1lsl9CojfRPrvQ9cxWZkTrC9QUxHm5DKvCDP6nSKIYGVtgMFgATN7p/HZn9mNn/vETbj/zr34k6UY//UKMEiBc0NgNclxnZBFtoIuWGarurYESTcIb5IlQEUilKXCtSIlFBowIeNKaZNVaRxHfDLTEqhTAhAzQ+FSzCxPF8bVKmOWc0qIw8YwxeryVcSdPj7y4Q/hvvvu4SfvvRs33jgHVeDKMtB68zwWkzn+3VA1iDCEPNtNc3is+E8g8GD77VchTARmBANGTBhpQVVp/SaSlwkTLo6ZASHeeW4Mh1hdXIVA4L1DGgJoRK/XQ6sVI4RRSqqqEFWkqcni0jJJ4LoD+3Dffffw6NF75Y4778RsB1gGcOYH5/H0yVfw5Mvv4CfnVtH92Xtl9ROHoesGEQUNRCgJB9YTIIoQXXgH/R+9CDiBhmGWLTItiUeOapXUuSoDtlT4ekHsnMPC4pLM7Zjlr/3Th3H34Ts5MzONhYUlnH75FXzj8b/F+YvzmJ2ZyQsQYHVtgOHGENu3zfDB+z6Oh37+U/j4z34cB3bNigF46/IKnnrqJTz+rRfxnVfO4vIAiKZm0erPYurbTyK0e1i//pbcnC1zBimA1AE+gltawM4nvwJNViBeKTYUMGVeFVZspQA1cup27b3hntmde0+p86w7MTbahqrK4uISH3rg5/Bvj/8O9u7dO8Gyixcv4l8/8nv4i795Gs45ibznHT/zITx4/xE5cuRefviWG+AAWQ7gy6dfwZNPPo1nT72EN96+LHQxelNTdK0uAiIE10JwHQwT4rZf/SJemb4ZVxgDUaYBsrYh7bOnuf2FP5V46V0i8iPpI+RFUygcYZ6Z00TULV0+/4VJJzjhBWvEY3FpGUfv/Ri++of/GQCQJGnJzRw1xNzcHP7wK78H8rfRbnd47Jd/EYfv+ii6cfa4H//0nDz7zPP45hPP4JXX/hGrgyG6/T5mpzsABCFsgOsmop7eb2BjbQk379+Hf3VzwiW8Lv/r+R/jie/9BN0Y8BffZHzlXYhXwgk0HUBoWUEEY1X9paoF+aefQGe3MIE0GKZ6Hf7uv/kXBCBJksBFUZlOGkwUyiRNJfIejxz/Z6Q47N65XeaXVvH886fw+BNP4+S3X8L5964wjlvo9bpodzowEpYOAQhFFKBRLIEiha6u45c+9Tkm7R5scYFvPXNCtl+aRxx7UBVsRRALkJBkAEnp+esOsMjFclR7xACOpSl1yWf3ehUsLa7gc585igMH9iMNAc65Oq+y2gOR9zQDZmdm8fRzp+SVV7+Pp/72efzo9bcQjOj1e9yxfZuQJGkIaVapjaorUkCoKNZWVnHHTTfi9ttuhoJ4/uTf4acX3sP22WmkIUBpQDrICQ15ikAUa2Q5LAUV7Lneu7kW2jOCgpGmCW778M1Z2WwGVBhgBoEqzDKYLQRjHEdy+vTLeOQ//D4O7N8v/X4fqgIzSkjTWopalIgZgFPC8JCQ4Bc++wBVvSxcuYxnnn0WUx0HpuvQzKvnbpZC2qj0po1Ul9wUzNFJoif5RI6gNV8SLaNfWxMLs730+31s37YN7XZMs4A0BCEtX7GSpRUhCgbQoAqsra7gI7ffjA/edBMIwwsvfJuXLl1E7BWwNHNwMCLDBCnMVZ8mJQ5YNYPSFKxkh9bgK7JZC3JJiQrOnX9vBAxYZZVqWaVaIP/44T/+CMNkWOEvR0gKx6FkjopwM3Eq+PkHPw1ScHX+Cp557jnpdFqwNCltXApbL5g38vYTQh2v35mD7qhlfRPAR5bQmRl63S6efu4FrA8GUFWQrNOdE08zqAhWVlfZn9mOGw9dj8WlxSJ7lBEiUK07RiC8U8Xq6iruOnwHrj90I8yCnDp5EpcvX0Hs3cjB5dLObN5G6O9YK6nWUWC13BXqZjl+zWoEMCM67RZ+cvZt+e9/9Md0qjQj0jTNUl8zBDOENAWNcM7h5IunZXbHbvz6l76ET37yHiTDITY2NjLmVYyNtV0JzAxx7Pmpo0exkaS4cvkSnnv+JDrtNoKFcZVu1CQ0oDkcK43HNGAM7Rn3GQKkIWB2dgb/6Q++Kn/8tUcRRR7ee6gqXP4feQ/vHb76tUf56P99DLMzsxgOUxz91AP48pe/jP0f2MeVpaVMe0Y4GUjCLIAkVlZW8LF/cjfm9nwAZgEvnDrF+fmriLwDaRUvVfln9bgoyhoo4gj8EQhdb2rbwXa3/2VRnVD9UT1XB7S8j/H4U8/i1VdfQ6/TRrvTQpIkWFhYwHf+33f5yO/+R/kf//P/yDvvnsNgbRmHDt2AEIhery93Hj6MOI7w5tmzMkxSRD5CSFOoCKIoliiKEEcRH/j0A9i5c5csLy7gT7/+dclbkWV9JZNJ6ti2WTY0UW/UZGi9iG4MVh/LUuFde0+pOhIsGUBUGoGs6YgIQFWVxaVlColts9NotTyGwxRXri6CBGZmZkASq6srsmf3HD/7C5/DB/YfwOraOrZtm8WFc+/ir//6r3D+wgXMzGxDf3oGznnJW6cMIeCmD96AlaWreOGFF9Hr92FmY+YqVRmXwH2G1bNAbSsMKKt1ExW3dOXSF3INmMo0IK/Uq/YoY4FTSqWgdNpttDptJEmQtfUEIVC6nS7anZaYZU6n1W7L8soaXv3eK9KKvBy64UasrQ0wPTuL22+/HW+/8y46vSk458EcQc8EofLexYu4urAEWkCaJMi0lBMpWyWMlZAbi7q3HE8Yh+dENwZrj+l4eGBTGVwuIDX/aGawYFCX2b7zjkZDsAx2zh0aW3EM7yN+85tP4M9O/AkYEsRRjNPffRlpyKRqtFFsyKATxnGMXq+P7TvncldpuQk32Dc5OSgxAR5N/vkt0Z5qg3TUZys0bGSDRFW9alpTdGREBP2pKZw58wN57733ePTo/Th79ixUM8dWGnjhwPLl0jRFHLfQ609jZWkBzvsKvsQGpLoRlCzHLcbv0K3qP6n2QJoW56b4WCNIbBbQ6/e4sLgo3/jGX4EAVGUkUdbhxgJRNBq63d5o+mSM4bUzTnwp9c+65ije19/IPRLNiDCvWVbn9mgmzjn2+lOl2Vb2LfmAyyjU5QQ77zM0iMRk6OYkatvEnoYpBr0W2fWGD+swczHVMVHW1PRgbEAiq11CSGW8Zzra5yhe1xJacmxfDQwXFNNLck08dzMGTCTEHJt4mygVq8l2M5JUaaZSRLCxvo4QQq0pxaJmR51wEWA43EAI6ZZtijoSv3n/rnqkmyxXgU45QkOrxYFU7m10tBzrloxGqFQVyXAD64M1OKcj5Lbp97kDXV682rjNZoPjaIqHsnmy38wAGa0tsoncpQRYsKXZV/KISoopIqLO4crli7AQoN4Vzq20VOYziVEUYXlxAavLy/Deb9WMrJqhTHZw2KjnuskoTEWxZRNKGwsO2WKMhqP4lSHLIU1w7p23kAw34H0EdU6yKTeFcw5OFQvzl3Hpwjn4yIuM6BJKQ0LEBjvYrLMNAggjSKzZtMbcJscjX7Vxsjm2VNtJ2VwhvPcYDjfw9ptvYHpmVjrdPpz3IIFkuIHlpQWsr62Ij2KqunLMUiq219B6qtfXm813bAWJyfv3JZUas4ZAjBayCb3IpwGzi1EUw0LA0sJVLl6dl8o8C1QVcdxmMRg5GsDMsqaJWqhS9LAyirGVXvgm98/xOngi4xqb9uM1xT/Rbypa5AJCnUPLOVhm9/kQqFbiqKBeiAgbOnqcaIPX+zmsTGwL2MSAqr5WRmE5lmeMJTzSpDwNreOahyoz6UIXRCDGDBUdDdKyXvdOjuOwOWFrzMKq092Fl/NN7kFQ1pH5aAnYgJYXmXUz/LLFnFWDuUnRbK2ImuPderlm81oml+aWmZ4oJKySTKXJmcoYvNSEMTaY/ti5YGLEdlMEYyzGsTZtvmnl2vz0puxk9HgSRia6cnX5EozLlRAzPsr5PhLKTA14rZlSEpMzdeOXpMnLVKiRiVxAmj1Y06EUc8NmBiEv6GAwf9EsnIcIJsb4hTUHtMlbCmN5/1ZTR5sosTRaNZtbtJtVAaNsVbYUVjbhbhYWF69ceUMBJMHC32fvB9GkyYikwflfYzas6Uy4Wfex+oaFNHJmPO3hJrnbRBowNhtEgqJKWnhtMJh/RwFgY7D8ZxbScqKtrnYyGUA5GVhlTGpsMA82qCW3yh7f95jORCrPrRM8SJqs/zkA6PHjx/W9t19/Yn2w+ppz3pMMxFgzQbCZ6o4rpmyVqxeojwDcJG42jrQ1rcWtvI004NsiIGnOOd0YrF6+euHs/wYg7rnn5lTkB2kc938ct9tfVOctn7YeeyWmVstU3+7Y9Jnj1Mvopon5eYFsWm1zk/CJCSdYDuCViUQ1+RJxJgK/vjL/W5cvnjt15MgR74AzeOihh1rfe/mlH7e7/aTV6X8aokZamas1MqDAy2XzEQvZWnP5vhggW+cQTalfjQGZ4ZuoUp2L1pbm/9vbv/4r/+4bU1OdF596KnEAZGZmRq6/++7ebQf3nXzz7NtDF0X3ex8raZb3qscR1y1AszKRLHr9lbQvT99FJhFXkYl8vnlkpwL7jIc/TiQMJhCq9x5murYy/5Xbbur8y0ffnY97Zsnrr78eFAAffvjhEC0uJm/Oz0997K4P/ZeN5aufX19b/gcQzjnv1Xknqpq9QVZUJtlfdqwi0NH18u0vyaOuSOX2/G90seFbjF3NzxXFi2LlM7JvcsXMamlVJ6pOnYs8BH64vvb99ZX537xuz8wji4sz7XMhhMFgEKpaKHfddZffvn17vBRCf+/0dPrDH76xY3WYHnVx+9Oq0W0A9kCkKyLRRCt58wRvPITLRGVYl/SE6Kv9nEpZVnlhqVLkZoiqERyAvAALPwhh+K2eD08fPHhwfnExUdX1pSiKkrm5ueTEiROhKIb48MMPhzNnziRYWFh58/Ll7vTufWu72vxLu7zy+MX1hW0h4Q4LnFKVLlV1lEtTLHPtVFItezVJyv5BAJxmxBjFVKgEhaJBSUX2ehOV1FDNeUkFhC6/FgA4ZkPyWREjRP4bUQkIGYCekknsZClSd6nXixfa7T1JouIuLC7qbKu1CkQJgPTWW2+dqPjl2LFj+n3AdQYD319ejtfW0LY4in2aKGMTUaVL1AUfVIZCxpSQphmqpEoLQYsXrrM2VwyRhCTFzMRbFEgTRhRNnTHK864hwCjTRk2dAUCqiXMuOy5aZtWXuYvnAYC3KFhkookyewWXMhSh88Gwvp6IzKyJLCeqmhw4cGB44sQJa3LEJVJ85MgRnZub0zcGA9+an3dRFLmVFfgkGWqrlWqaRqrqaBYkjVJVVWIAWMtEN7KXzorruqG0lmUMSLwB+X2qLOaJdENZvb/6++KeyqgezUa/b5MydM5aZpIk3ryPTHWdZt200wnBzNIoipKVlVvCDTdctRNbvjxduX78+HF59tln9dKlS3rw4EFZWFjQbC5wpyTbN2TbcCjZeSIZshOxOEbW0hIA6HQ6NhgMNIRpabXWLIoiDgYD9d6zuKd63Ol0LEkSKc5DCJL2++JXIjq3RAAI09PilpYYwrQAQKu1ZhsbXc1mkpJw9WrMbnfZWq0WV1ZuCadP/1HYZE4G/x/Xl68FdxDXqgAAAABJRU5ErkJggg==" alt="Valence Logo">
+      <span>Valence</span>
+    </div>
+    <div class="footer-links">
+      <a href="valence.html">Editor</a>
+      <a href="#projekt">Projekt</a>
+      <a href="#lernen">Lernen</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  const ICON_CHEVRON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+  const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+
+  const LESSONS = {
+    html: [
+      { title: 'Was ist HTML?', body: 'HTML steht für „HyperText Markup Language" und bildet die Grundstruktur jeder Webseite. Damit lassen sich Überschriften, Texte, Bilder, Links, Tabellen und Formulare erstellen. HTML besteht aus Tags, die meist paarweise auftreten: ein öffnender und ein schließender Tag.', code: '<h1>Meine Webseite</h1>' },
+      { title: 'Was brauchst du zum Programmieren?', body: 'Für HTML reichen zwei Werkzeuge: ein Texteditor (z. B. Visual Studio Code, Notepad++ oder Sublime Text) und ein Webbrowser (Chrome, Edge oder Firefox). Der Browser liest deinen HTML-Code und zeigt daraus die fertige Webseite an.', code: null },
+      { title: 'Eine HTML-Datei erstellen', body: 'Speichere deine Datei mit der Endung .html, zum Beispiel als index.html. Diese Endung sagt dem Computer, dass es sich um eine Webseite handelt. Öffnest du die Datei, startet dein Browser und zeigt die Seite an.', code: 'index.html' },
+      { title: 'Das Grundgerüst einer HTML-Seite', body: 'Jede HTML-Seite besitzt ein festes Grundgerüst: <!DOCTYPE html> legt HTML5 fest, <html> umschließt die gesamte Seite, <head> enthält Informationen wie den <title> (er erscheint im Browser-Tab), und <body> enthält alle sichtbaren Inhalte.', code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Meine Webseite</title>\n</head>\n<body>\n    <h1>Hallo Welt!</h1>\n    <p>Meine erste Webseite.</p>\n</body>\n</html>' },
+      { title: 'Überschriften erstellen', body: 'HTML kennt sechs Überschriften-Ebenen, von <h1> (größte) bis <h6> (kleinste). <h1> wird meist nur einmal pro Seite verwendet, für die Hauptüberschrift.', code: '<h1>Größte Überschrift</h1>\n<h2>Zweitgrößte Überschrift</h2>\n<h3>Drittgrößte Überschrift</h3>\n<h4>Überschrift</h4>\n<h5>Überschrift</h5>\n<h6>Kleinste Überschrift</h6>' },
+      { title: 'Texte und Absätze schreiben', body: 'Normale Texte stehen im <p>-Tag. Mit <br> erzeugst du innerhalb eines Textes einen Zeilenumbruch, ohne einen neuen Absatz zu beginnen.', code: '<p>\n  Dies ist ein normaler Text auf meiner Webseite.\n</p>\n\nHallo<br>\nWelt' },
+      { title: 'Links erstellen', body: 'Mit dem <a>-Tag erstellst du einen Link. Das Attribut href gibt an, wohin er führt; der Text zwischen den Tags ist der sichtbare, klickbare Linktext.', code: '<a href="https://www.google.de">\n  Google öffnen\n</a>' },
+      { title: 'Bilder einfügen', body: 'Bilder fügst du mit dem <img>-Tag ein. src gibt den Namen oder Speicherort des Bildes an, alt eine Beschreibung, die angezeigt wird, falls das Bild nicht geladen werden kann.', code: '<img src="katze.jpg" alt="Eine Katze">' },
+      { title: 'Listen erstellen', body: 'Es gibt zwei Arten von Listen: <ul> für unsortierte Listen (mit Punkten) und <ol> für sortierte, nummerierte Listen. Jeder Eintrag steht in einem <li>-Tag.', code: '<ul>\n  <li>Apfel</li>\n  <li>Banane</li>\n  <li>Orange</li>\n</ul>\n\n<ol>\n  <li>Schritt eins</li>\n  <li>Schritt zwei</li>\n</ol>' },
+      { title: 'Tabellen erstellen', body: 'Tabellen stellen Daten übersichtlich dar. <table> erstellt die Tabelle, <tr> eine Zeile, <th> eine Überschriftszelle und <td> eine normale Zelle.', code: '<table>\n  <tr>\n    <th>Name</th>\n    <th>Alter</th>\n  </tr>\n  <tr>\n    <td>Max</td>\n    <td>15</td>\n  </tr>\n</table>' },
+      { title: 'Formulare erstellen', body: 'Formulare ermöglichen Benutzereingaben: type="text" für ein Textfeld, type="password" für ein verstecktes Passwortfeld, type="checkbox" für ein Auswahlfeld und type="submit" für eine Absenden-Schaltfläche.', code: '<form>\n  Name:\n  <input type="text">\n\n  Passwort:\n  <input type="password">\n\n  <input type="submit">\n</form>' },
+      { title: 'CSS für das Design benutzen', body: 'HTML erstellt die Struktur, CSS das Aussehen. Mit CSS lassen sich Farben, Schriftgrößen, Hintergründe, Abstände und Positionen verändern. Meist wird CSS in einer eigenen Datei wie style.css gespeichert, es funktioniert aber auch direkt im style-Attribut.', code: '<p style="color:red;">\n  Roter Text\n</p>' },
+      { title: 'JavaScript hinzufügen', body: 'JavaScript macht Webseiten interaktiv. Damit lassen sich Spiele erstellen, Animationen bauen, Inhalte verändern und Benutzeraktionen erkennen — zum Beispiel ein Klick, der eine Nachricht anzeigt.', code: '<button onclick="alert(\'Hallo!\')">\n  Klick mich\n</button>' },
+      { title: 'HTML-Code testen und Fehler finden', body: 'Teste deine Webseite nach dem Schreiben immer im Browser. Achte besonders auf fehlende schließende Tags, falsche Dateinamen, Tippfehler und falsche Links. Mit F12 öffnest du die Entwicklerwerkzeuge, die dir helfen, Fehler zu finden.', code: null },
+      { title: 'Eigene HTML-Projekte erstellen', body: 'Übung ist der wichtigste Teil beim Programmieren lernen. Für den Einstieg eignen sich eine eigene Homepage, eine Lebenslauf-Webseite oder eine Bildergalerie. Fortgeschrittene können sich an einer Blog-Seite, einem Online-Shop-Entwurf oder kleinen Spielen versuchen.', code: null }
+    ],
+    javascript: [
+      { title: 'Was ist JavaScript?', body: 'JavaScript ist eine Programmiersprache, die Webseiten interaktiv macht. Während HTML die Struktur erstellt und CSS das Design bestimmt, sorgt JavaScript für Funktionen und Aktionen — etwa Buttons, Animationen, Spiele und dynamische Inhalte.', code: 'alert("Hallo Welt!");' },
+      { title: 'Was benötigst du für JavaScript?', body: 'Du brauchst nur einen Texteditor (z. B. Visual Studio Code) und einen Webbrowser (Chrome, Firefox, Edge). JavaScript ist bereits in jedem modernen Browser eingebaut und muss nicht extra installiert werden.', code: null },
+      { title: 'JavaScript in eine Webseite einfügen', body: 'JavaScript kann direkt in eine HTML-Datei geschrieben werden. Der Bereich zwischen <script> und <\/script> enthält deinen JavaScript-Code.', code: '<html>\n<body>\n\n<h1>Meine Webseite</h1>\n\n<script>\nalert("Willkommen!");\n<\/script>\n\n</body>\n</html>' },
+      { title: 'Das erste JavaScript-Programm', body: 'Das klassische erste Programm gibt Text in der Entwicklerkonsole aus. Die Ausgabe erscheint in den Entwicklerwerkzeugen deines Browsers, die du mit F12 öffnest.', code: 'console.log("Hallo Welt!");' },
+      { title: 'Variablen verstehen', body: 'Variablen speichern Daten. Es gibt drei Möglichkeiten: var (alte Schreibweise), let (kann verändert werden) und const (Wert, der nicht verändert werden soll).', code: 'let name = "Max";\nconst alter = 15;\n\nconsole.log(name);\nconsole.log(alter);' },
+      { title: 'Datentypen kennenlernen', body: 'JavaScript kennt unter anderem String (Text), Number (Zahlen), Boolean (wahr/falsch) und Array (mehrere Werte in einer Liste).', code: 'let name = "Anna";\nlet zahl = 100;\nlet istAktiv = true;\nlet farben = ["Rot", "Blau", "Grün"];' },
+      { title: 'Eingaben und Ausgaben', body: 'Mit alert() zeigst du eine Nachricht an, mit prompt() fragst du eine Eingabe vom Benutzer ab und speicherst sie in einer Variable.', code: 'let name = prompt("Name:");\nalert("Hallo " + name);' },
+      { title: 'Rechnen mit JavaScript', body: 'JavaScript beherrscht die Grundrechenarten: Addition (+), Subtraktion (-), Multiplikation (*) und Division (/).', code: 'let a = 10;\nlet b = 5;\n\nlet ergebnis = a + b;\nconsole.log(ergebnis); // 15' },
+      { title: 'Bedingungen mit if und else', body: 'Mit Bedingungen trifft dein Programm Entscheidungen: if führt Code aus, wenn eine Bedingung stimmt, else führt Code aus, wenn sie nicht stimmt.', code: 'let alter = 18;\n\nif (alter >= 18) {\n    console.log("Volljährig");\n} else {\n    console.log("Minderjährig");\n}' },
+      { title: 'Schleifen verwenden', body: 'Schleifen wiederholen Code automatisch. Eine for-Schleife läuft eine festgelegte Anzahl von Durchläufen, eine while-Schleife läuft, solange eine Bedingung wahr ist.', code: 'for (let i = 0; i < 5; i++) {\n    console.log(i);\n}' },
+      { title: 'Arrays verwenden', body: 'Arrays speichern mehrere Werte in einer Liste. Mit eckigen Klammern greifst du auf ein Element zu, mit push() fügst du ein neues Element hinzu.', code: 'let tiere = ["Hund", "Katze", "Vogel"];\n\nconsole.log(tiere[0]); // Hund\n\ntiere.push("Fisch");' },
+      { title: 'Funktionen erstellen', body: 'Funktionen speichern Code, den du mehrfach verwenden kannst. Eine Funktion wird erst ausgeführt, wenn sie aufgerufen wird.', code: 'function begruessung() {\n    console.log("Hallo!");\n}\n\nbegruessung();' },
+      { title: 'Ereignisse programmieren', body: 'JavaScript kann auf Aktionen des Benutzers reagieren, zum Beispiel click (Mausklick), mouseover (Maus über ein Element bewegen) oder keydown (Taste drücken).', code: '<button onclick="klick()">\n  Drücken\n</button>\n\nfunction klick() {\n    alert("Button wurde gedrückt!");\n}' },
+      { title: 'Webseiten mit JavaScript verändern', body: 'Mit document.getElementById() suchst du ein HTML-Element und kannst z. B. über innerHTML dessen Inhalt verändern.', code: 'document.getElementById("text").innerHTML =\n  "Neuer Text";' },
+      { title: 'Eigene JavaScript-Projekte erstellen', body: 'Für den Einstieg eignen sich ein Taschenrechner, eine Uhr, eine To-do-Liste oder ein Zufallsgenerator. Fortgeschrittene können Browser-Spiele, Chat-Anwendungen oder interaktive Web-Apps bauen.', code: null }
+    ],
+    python: [
+      { title: 'Was ist Python?', body: 'Python ist eine moderne, gut lesbare Programmiersprache für Anfänger und Profis. Damit lassen sich Programme, Webseiten, Spiele, Datenanalysen, künstliche Intelligenz und Automatisierungen erstellen.', code: 'print("Hallo Welt!")' },
+      { title: 'Python installieren', body: 'Lade Python von der offiziellen Webseite herunter und installiere es. Danach kannst du in der Konsole mit python --version prüfen, ob die Installation funktioniert hat.', code: 'python --version' },
+      { title: 'Einen Programmiereditor auswählen', body: 'Geeignete Editoren sind Visual Studio Code, PyCharm, Thonny oder IDLE, das direkt bei Python mitgeliefert wird. Sie helfen dir beim Schreiben und Testen deines Codes.', code: null },
+      { title: 'Das erste Python-Programm', body: 'Das klassische erste Programm heißt „Hallo Welt". Mit print() gibst du Text auf dem Bildschirm aus — der Inhalt in den Klammern wird angezeigt.', code: 'print("Hallo Welt!")' },
+      { title: 'Variablen verstehen', body: 'Variablen speichern Informationen. Python erkennt den Datentyp automatisch — ob Text, Zahl oder Kommazahl.', code: 'name = "Max"\nalter = 15\n\nprint(name)\nprint(alter)' },
+      { title: 'Datentypen kennenlernen', body: 'Python kennt unter anderem String (Text), Integer (ganze Zahlen), Float (Kommazahlen) und Boolean (wahr/falsch).', code: 'name = "Peter"\nzahl = 10\ntemperatur = 22.5\nist_online = True' },
+      { title: 'Eingaben vom Benutzer', body: 'Mit input() kann der Benutzer Daten eingeben, die du direkt weiterverarbeiten kannst.', code: 'name = input("Wie heißt du? ")\nprint("Hallo " + name)' },
+      { title: 'Rechnen mit Python', body: 'Python beherrscht die Grundrechenarten: Addition (+), Subtraktion (-), Multiplikation (*) und Division (/).', code: 'zahl1 = 10\nzahl2 = 5\n\nergebnis = zahl1 + zahl2\nprint(ergebnis) # 15' },
+      { title: 'Bedingungen mit if und else', body: 'Mit if prüfst du, ob eine Bedingung erfüllt ist, mit else, was passiert, wenn nicht. Wichtig in Python: Der Code-Block nach dem Doppelpunkt muss eingerückt sein.', code: 'alter = 18\n\nif alter >= 18:\n    print("Du bist volljährig")\nelse:\n    print("Du bist minderjährig")' },
+      { title: 'Schleifen verwenden', body: 'Eine for-Schleife mit range() wiederholt Code eine festgelegte Anzahl an Malen, eine while-Schleife läuft, solange eine Bedingung wahr ist.', code: 'for zahl in range(5):\n    print(zahl)' },
+      { title: 'Listen erstellen', body: 'Listen speichern mehrere Werte. Mit eckigen Klammern greifst du auf ein Element zu, mit append() fügst du ein neues Element hinzu.', code: 'fruechte = ["Apfel", "Banane", "Orange"]\n\nprint(fruechte[0]) # Apfel\n\nfruechte.append("Birne")' },
+      { title: 'Funktionen erstellen', body: 'Mit def erstellst du eine Funktion. Sie wird erst ausgeführt, wenn du sie aufrufst.', code: 'def begruessung():\n    print("Hallo!")\n\nbegruessung()' },
+      { title: 'Module und Bibliotheken benutzen', body: 'Mit import lädst du fertige Erweiterungen, zum Beispiel random für Zufallswerte. Beliebte Bibliotheken sind tkinter (grafische Programme), pygame (Spiele), numpy (Mathematik) und pandas (Datenanalyse).', code: 'import random\n\nzahl = random.randint(1, 10)\nprint(zahl)' },
+      { title: 'Fehler finden und Programme testen', body: 'Häufige Fehler sind SyntaxError (falsche Schreibweise), NameError (Variable nicht vorhanden) und TypeError (falscher Datentyp). Lies Fehlermeldungen genau, teste deinen Code Schritt für Schritt und mache jeweils nur kleine Änderungen.', code: null },
+      { title: 'Eigene Python-Projekte erstellen', body: 'Für den Einstieg eignen sich ein Taschenrechner, ein Zahlenratespiel, ein Passwort-Generator oder eine To-do-Liste. Fortgeschrittene können einen Chatbot, kleine Spiele oder Datenanalyse-Programme bauen.', code: null }
+    ]
+  };
+
+  const $ = (sel) => document.querySelector(sel);
+  const accordion = $('#lessonAccordion');
+  let currentLang = 'html';
+
+  function escapeHTML(str){
+    const d = document.createElement('div');
+    d.textContent = str == null ? '' : String(str);
+    return d.innerHTML;
+  }
+
+  function renderLessons(lang){
+    accordion.innerHTML = '';
+    LESSONS[lang].forEach((lesson, i) => {
+      const item = document.createElement('div');
+      item.className = 'accordion-item' + (i === 0 ? ' open' : '');
+
+      const header = document.createElement('button');
+      header.className = 'accordion-header';
+      header.innerHTML = `
+        <span class="step-badge">${i + 1}</span>
+        <span class="accordion-title">${escapeHTML(lesson.title)}</span>
+        <span class="accordion-chevron">${ICON_CHEVRON}</span>`;
+      header.addEventListener('click', () => item.classList.toggle('open'));
+
+      const body = document.createElement('div');
+      body.className = 'accordion-body';
+      const inner = document.createElement('div');
+      inner.className = 'accordion-body-inner';
+
+      const p = document.createElement('p');
+      p.textContent = lesson.body;
+      inner.appendChild(p);
+
+      if (lesson.code){
+        const pre = document.createElement('pre');
+        pre.className = 'code-block';
+        const codeEl = document.createElement('code');
+        codeEl.textContent = lesson.code;
+        pre.appendChild(codeEl);
+        inner.appendChild(pre);
+
+        const link = document.createElement('a');
+        link.className = 'try-link';
+        link.href = 'valence.html?lang=' + encodeURIComponent(lang) + '&code=' + encodeURIComponent(lesson.code);
+        link.innerHTML = 'Im Editor öffnen ' + ICON_ARROW;
+        inner.appendChild(link);
+      }
+
+      body.appendChild(inner);
+      item.appendChild(header);
+      item.appendChild(body);
+      accordion.appendChild(item);
+    });
+  }
+
+  document.querySelectorAll('.lesson-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      if (tab.dataset.lang === currentLang) return;
+      currentLang = tab.dataset.lang;
+      document.querySelectorAll('.lesson-tab').forEach(t => t.classList.toggle('active', t === tab));
+      renderLessons(currentLang);
+    });
+  });
+
+  renderLessons(currentLang);
+})();
+</script>
+</body>
+</html>

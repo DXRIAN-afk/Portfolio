@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DVD-Logo Screensaver</title>
+    <style>
+        /* ----- Reset & Basis ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #0a0f1a;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            user-select: none;
+            --dvd-logo-img: url("data:image/png;base64,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");
+        }
+
+        /* ----- Der Bildschirm ----- */
+        #screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #111822;
+            overflow: hidden;
+            box-shadow: inset 0 0 120px rgba(0, 30, 60, 0.6);
+            border: 2px solid #2a4a6a;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        /* ----- Flacker-Overlay ----- */
+        #flash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0;
+            background: #ffffff;
+            mix-blend-mode: overlay;
+        }
+
+        #flash-overlay.active {
+            opacity: 0.6;
+            animation: flashColors 0.15s infinite alternate;
+        }
+
+        @keyframes flashColors {
+            0%   { background-color: #ff0000; }
+            10%  { background-color: #ff8800; }
+            20%  { background-color: #ffff00; }
+            30%  { background-color: #00ff00; }
+            40%  { background-color: #00ffff; }
+            50%  { background-color: #0088ff; }
+            60%  { background-color: #8800ff; }
+            70%  { background-color: #ff00ff; }
+            80%  { background-color: #ff0088; }
+            90%  { background-color: #ff4400; }
+            100% { background-color: #ff0000; }
+        }
+
+        /* ----- DVD-Container mit Rahmen ----- */
+        #dvd-container {
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #dvd-frame {
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 3px solid rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.15),
+                        inset 0 0 15px rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #dvd-logo {
+            display: block;
+            width: 140px;
+            height: auto;
+            aspect-ratio: 332 / 155;
+            background-color: #ffffff;
+            -webkit-mask-image: var(--dvd-logo-img);
+            mask-image: var(--dvd-logo-img);
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.15));
+            position: relative;
+            z-index: 1;
+            transition: background-color 0.15s ease;
+        }
+
+        /* ----- Zähler ----- */
+        #counter {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            padding: 4px 14px;
+            border-radius: 30px;
+            color: #6a9ab8;
+            font-size: 0.75rem;
+            font-family: 'Fira Mono', monospace;
+            border: 1px solid rgba(74, 122, 156, 0.2);
+            z-index: 100;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+        }
+        #counter span {
+            color: #b0d4f0;
+            font-weight: 600;
+        }
+
+        /* ----- Laufzeitanzeige (unter dem Zähler) ----- */
+        #runtime-display {
+            position: fixed;
+            top: 52px;
+            right: 24px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            padding: 2px 12px;
+            border-radius: 20px;
+            color: #6a9ab8;
+            font-size: 0.6rem;
+            font-family: 'Fira Mono', monospace;
+            border: 1px solid rgba(74, 122, 156, 0.15);
+            z-index: 100;
+            pointer-events: none;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+        }
+        #runtime-display span {
+            color: #b0d4f0;
+        }
+
+        /* ----- Ecktreffer-Anzeige ----- */
+        #corner-hit {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            padding: 6px 22px;
+            border-radius: 40px;
+            color: #ffcc44;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            border: 1px solid rgba(255, 200, 50, 0.3);
+            z-index: 100;
+            white-space: nowrap;
+            pointer-events: none;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        #corner-hit.show {
+            opacity: 1;
+        }
+
+        /* ----- Responsive ----- */
+        @media (max-width: 700px) {
+            #dvd-logo { width: 100px; }
+            #dvd-frame { top: -5px; left: -5px; right: -5px; bottom: -5px; border-width: 2.5px; }
+            #counter { font-size: 0.65rem; padding: 3px 12px; top: 16px; right: 18px; }
+            #runtime-display { font-size: 0.5rem; top: 44px; right: 18px; padding: 2px 10px; }
+        }
+        @media (max-width: 450px) {
+            #dvd-logo { width: 70px; }
+            #dvd-frame { top: -4px; left: -4px; right: -4px; bottom: -4px; border-width: 2px; }
+            #counter { font-size: 0.55rem; padding: 2px 10px; top: 12px; right: 14px; }
+            #runtime-display { font-size: 0.45rem; top: 36px; right: 14px; padding: 2px 8px; }
+            #corner-hit { font-size: 0.65rem; padding: 4px 14px; bottom: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bildschirm -->
+    <div id="screen"></div>
+
+    <!-- Flacker-Overlay -->
+    <div id="flash-overlay"></div>
+
+    <!-- DVD-Container mit Rahmen -->
+    <div id="dvd-container">
+        <div id="dvd-frame"></div>
+        <div id="dvd-logo"></div>
+    </div>
+
+    <!-- Zähler -->
+    <div id="counter"># <span id="bounceCount">0</span></div>
+
+    <!-- Laufzeitanzeige (unter dem Zähler) -->
+    <div id="runtime-display">⏱ <span id="runtimeValue">00:00</span></div>
+
+    <!-- Ecktreffer-Anzeige -->
+    <div id="corner-hit">ECK-TREFFER</div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // ----- Elemente -----
+            const screen = document.getElementById('screen');
+            const container = document.getElementById('dvd-container');
+            const logo = document.getElementById('dvd-logo');
+            const frame = document.getElementById('dvd-frame');
+            const flashOverlay = document.getElementById('flash-overlay');
+            const cornerHit = document.getElementById('corner-hit');
+            const bounceSpan = document.getElementById('bounceCount');
+            const runtimeSpan = document.getElementById('runtimeValue');
+
+            // ----- Variablen -----
+            let x = 0;
+            let y = 0;
+            let speedX = 1.8;
+            let speedY = 1.2;
+            const baseSpeed = 1.6;
+
+            let currentSpeedX = speedX;
+            let currentSpeedY = speedY;
+            let logoWidth = 140;
+            let logoHeight = 65;
+            let bounceCount = 0;
+            let isFlashing = false;
+            let flashTimeout = null;
+
+            // Laufzeit
+            let startTime = Date.now();
+            let runtimeInterval = null;
+
+            // Farbpalette
+            const colors = [
+                '#ff6b6b', '#ffd93d', '#6bcb77', '#4d96ff', '#9b59b6',
+                '#ff8a5c', '#00d2d3', '#f368e0', '#ff9ff3', '#54a0ff'
+            ];
+            let currentColorIndex = 0;
+
+            // ----- Logo-Größe aktualisieren -----
+            function updateLogoSize() {
+                const screenWidth = screen.clientWidth;
+                const screenHeight = screen.clientHeight;
+                let size = Math.min(screenWidth, screenHeight) * 0.12;
+                size = Math.min(Math.max(size, 60), 180);
+                logoWidth = Math.round(size);
+                logoHeight = Math.round(size * (155 / 332));
+                logo.style.width = logoWidth + 'px';
+                logo.style.height = logoHeight + 'px';
+                container.style.width = logoWidth + 'px';
+                container.style.height = logoHeight + 'px';
+            }
+
+            // ----- Farbe wechseln -----
+            function changeColor() {
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * colors.length);
+                } while (newIndex === currentColorIndex && colors.length > 1);
+                currentColorIndex = newIndex;
+                const color = colors[currentColorIndex];
+                logo.style.backgroundColor = color;
+                frame.style.borderColor = color;
+                frame.style.boxShadow = `0 0 25px ${color}55, inset 0 0 25px ${color}33`;
+                logo.style.filter = `drop-shadow(0 0 18px ${color}66)`;
+            }
+
+            // ----- Laufzeit aktualisieren -----
+            function updateRuntime() {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+                const seconds = String(elapsed % 60).padStart(2, '0');
+                runtimeSpan.textContent = `${minutes}:${seconds}`;
+            }
+
+            // ----- Flacker-Effekt -----
+            function startFlash() {
+                if (isFlashing) return;
+                isFlashing = true;
+                flashOverlay.classList.add('active');
+                cornerHit.classList.add('show');
+                if (flashTimeout) clearTimeout(flashTimeout);
+                flashTimeout = setTimeout(() => {
+                    flashOverlay.classList.remove('active');
+                    cornerHit.classList.remove('show');
+                    isFlashing = false;
+                    flashTimeout = null;
+                }, 2000);
+            }
+
+            // ----- Prall-Ereignis -----
+            function onBounce(corner = false) {
+                bounceCount++;
+                if (bounceSpan) {
+                    bounceSpan.textContent = bounceCount;
+                }
+                changeColor();
+                container.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    container.style.transform = 'scale(1)';
+                }, 80);
+                if (corner) {
+                    startFlash();
+                }
+            }
+
+            // ----- Eck-Erkennung -----
+            function checkCorner(x, y, w, h, sw, sh) {
+                const tolerance = 2;
+                const left = x <= tolerance;
+                const right = x + w >= sw - tolerance;
+                const top = y <= tolerance;
+                const bottom = y + h >= sh - tolerance;
+                return (left && top) || (left && bottom) || (right && top) || (right && bottom);
+            }
+
+            // ----- Haupt-Animation -----
+            function animate() {
+                const screenWidth = screen.clientWidth;
+                const screenHeight = screen.clientHeight;
+
+                x += currentSpeedX;
+                y += currentSpeedY;
+
+                let bounced = false;
+                let corner = false;
+
+                if (x < 0) {
+                    x = 0;
+                    currentSpeedX = Math.abs(currentSpeedX);
+                    bounced = true;
+                }
+                if (x + logoWidth > screenWidth) {
+                    x = screenWidth - logoWidth;
+                    currentSpeedX = -Math.abs(currentSpeedX);
+                    bounced = true;
+                }
+                if (y < 0) {
+                    y = 0;
+                    currentSpeedY = Math.abs(currentSpeedY);
+                    bounced = true;
+                }
+                if (y + logoHeight > screenHeight) {
+                    y = screenHeight - logoHeight;
+                    currentSpeedY = -Math.abs(currentSpeedY);
+                    bounced = true;
+                }
+
+                if (bounced) {
+                    corner = checkCorner(x, y, logoWidth, logoHeight, screenWidth, screenHeight);
+                    onBounce(corner);
+                }
+
+                container.style.left = x + 'px';
+                container.style.top = y + 'px';
+
+                requestAnimationFrame(animate);
+            }
+
+            // ----- Initialisierung -----
+            function init() {
+                updateLogoSize();
+
+                const screenWidth = screen.clientWidth;
+                const screenHeight = screen.clientHeight;
+
+                x = Math.round(Math.random() * (screenWidth - logoWidth));
+                y = Math.round(Math.random() * (screenHeight - logoHeight));
+
+                const angle = Math.random() * Math.PI * 2;
+                const speed = baseSpeed * (0.7 + Math.random() * 0.6);
+                speedX = Math.cos(angle) * speed;
+                speedY = Math.sin(angle) * speed;
+
+                if (Math.abs(speedX) < 0.5) speedX = (speedX > 0 ? 1 : -1) * 0.8;
+                if (Math.abs(speedY) < 0.5) speedY = (speedY > 0 ? 1 : -1) * 0.8;
+
+                currentSpeedX = speedX;
+                currentSpeedY = speedY;
+                changeColor();
+
+                container.style.left = x + 'px';
+                container.style.top = y + 'px';
+
+                bounceCount = 0;
+                if (bounceSpan) bounceSpan.textContent = '0';
+
+                // Laufzeit starten
+                startTime = Date.now();
+                updateRuntime();
+                runtimeInterval = setInterval(updateRuntime, 1000);
+
+                animate();
+            }
+
+            // ----- Bei Fenstergrößenänderung -----
+            function handleResize() {
+                const oldWidth = logoWidth;
+                const oldHeight = logoHeight;
+                updateLogoSize();
+
+                const scaleX = logoWidth / oldWidth;
+                const scaleY = logoHeight / oldHeight;
+                const screenWidth = screen.clientWidth;
+                const screenHeight = screen.clientHeight;
+
+                let newX = x * scaleX;
+                let newY = y * scaleY;
+
+                if (newX < 0) newX = 0;
+                if (newY < 0) newY = 0;
+                if (newX + logoWidth > screenWidth) newX = screenWidth - logoWidth;
+                if (newY + logoHeight > screenHeight) newY = screenHeight - logoHeight;
+
+                x = Math.round(newX);
+                y = Math.round(newY);
+                container.style.left = x + 'px';
+                container.style.top = y + 'px';
+            }
+
+            // ----- Event-Listener -----
+            window.addEventListener('resize', handleResize);
+            window.addEventListener('orientationchange', function() {
+                setTimeout(handleResize, 200);
+            });
+
+            // ----- Doppelklick auf Screen wechselt Farbe (versteckt) -----
+            screen.addEventListener('dblclick', function() {
+                changeColor();
+            });
+
+            // ----- Start -----
+            setTimeout(init, 50);
+            window.addEventListener('load', function() {
+                setTimeout(init, 100);
+            });
+
+            console.log('DVD-Logo Screensaver gestartet');
+        })();
+    </script>
+</body>
+</html>
